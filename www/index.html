@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<script src="css/source-sans-pro.js"></script>
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+
+		<script src="phonegap.js"></script>
+		<script src="cordova.js"></script>
+		<script src="lib/jquery-1.8.2.min.js"></script>
+
+		<script src="lib/handlebars.js"></script>
+
+		<script id="home-tpl" type="text/x-handlebars-template">
+		    <div class='header'><h1>Home - Customers</h1></div>
+		    <div class='search-bar'><input class='search-key' type="search"/></div>
+		    <div class="scroll"><ul class='customer-list'></ul></div>
+		</script>
+
+		<script id="customer-li-tpl" type="text/x-handlebars-template">
+		    {{#.}}
+		    <li><a href="#customers/{{this.id}}">{{this.name}}<br/>{{this.location}}</a></li>
+		    {{/.}}
+		</script>
+
+		<script id="customer-tpl" type="text/x-handlebars-template">
+		    <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
+		    <div class='details'>
+		        <img class='customer-image' src='img/{{name}}.jpg' />
+		        <h1>{{name}}</h1>
+		        <h2>{{location}}</h2>
+		        <span class="location"></span>		        
+		        <h2>{{mainContact}}</h2>
+		        <br/>		        
+		        <ul>
+		            <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
+		            <li><a href="tel:{{mobilePhone}}">Call Mobile<br/>{{mobilePhone}}</a></li>
+		            <li><a href="mailto:{{email}}">Email<br/>{{email}}</a></li>		            
+		            <li><a href="#" class="add-location-btn">Add Location</a></li>
+		            <li><a href="#" class="add-contact-btn">Add to Contacts</a></li>
+		            <li><a href="#" class="change-pic-btn">Change Picture</a></li>
+		        </ul>
+		    </div>
+		</script>
+
+		<script src="js/storage/ls-store.js"></script>
+		<script src="js/HomeView.js"></script>
+		<script src="js/CustomerView.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>
